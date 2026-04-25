@@ -5,18 +5,21 @@ class TestWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 204, 200, 200),
-      child: const Row(
-        children: <Widget>[
-          Text('Begin'),
-          Spacer(), // Defaults to a flex of one.
-          Text('Middle'),
-          // Gives twice the space between Middle and End than Begin and Middle.
-          Spacer(flex: 1),
-          Text('End'),
-        ],
-      ),
-    );
+    return GridView.count(
+      scrollDirection: Axis.vertical,
+      physics: const BouncingScrollPhysics(),
+      crossAxisCount: 1,
+      children: List.generate(20, (index) {
+        return Container(
+          color: Colors.blue,
+          margin: const EdgeInsets.all(4.0),
+          child: Center(
+            child: Text(
+              'Item $index',
+              style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    }));
   }
 }

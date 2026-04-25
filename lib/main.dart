@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:whats_app_clone/chat_summary_widget.dart';
 import 'package:whats_app_clone/custom_search_widget.dart';
+import 'package:whats_app_clone/custom_statefull_widget.dart';
+import 'package:whats_app_clone/test_widget.dart';
 
 void main() {
   // debugPaintSizeEnabled = true;
   runApp(const WhatsApp());
 }
 
-class WhatsApp extends StatelessWidget {
+class WhatsApp extends StatefulWidget {
   const WhatsApp({super.key});
 
   @override
-  Widget build(Object context) {
+  State<StatefulWidget> createState() => _WhatsAppState();
+}
+
+class _WhatsAppState extends State<WhatsApp> {
+  int mssgCount = 0;
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
       title: 'WhatsApp Clone',
       debugShowCheckedModeBanner: false,
@@ -73,28 +82,25 @@ class WhatsApp extends StatelessWidget {
           ),
           backgroundColor: Colors.black,
         ),
-        body:
-        const SingleChildScrollView(
+        body: const SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
-          child:  Column(
-            children:  [
+          child: Column(
+            children: [
               ChatSummaryWidget(name: 'محمد', lastMessage: 'مرحبا كيف حالك؟'),
               ChatSummaryWidget(name: 'علي', lastMessage: 'هل تريد الخروج؟'),
-              ChatSummaryWidget(name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
+              ChatSummaryWidget(
+                  name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
               ChatSummaryWidget(name: 'محمد', lastMessage: 'مرحبا كيف حالك؟'),
               ChatSummaryWidget(name: 'علي', lastMessage: 'هل تريد الخروج؟'),
-              ChatSummaryWidget(name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
+              ChatSummaryWidget(
+                  name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
               ChatSummaryWidget(name: 'محمد', lastMessage: 'مرحبا كيف حالك؟'),
               ChatSummaryWidget(name: 'علي', lastMessage: 'هل تريد الخروج؟'),
-              ChatSummaryWidget(name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
-              ChatSummaryWidget(name: 'محمد', lastMessage: 'مرحبا كيف حالك؟'),
-              ChatSummaryWidget(name: 'علي', lastMessage: 'هل تريد الخروج؟'),
-              ChatSummaryWidget(name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
-              ChatSummaryWidget(name: 'محمد', lastMessage: 'مرحبا كيف حالك؟'),
-              ChatSummaryWidget(name: 'علي', lastMessage: 'هل تريد الخروج؟'),
-              ChatSummaryWidget(name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
-              
+              ChatSummaryWidget(
+                  name: 'سارة', lastMessage: 'متى موعد الاجتماع؟'),
+
+              // TestWidget(),
             ],
           ),
         ),
@@ -198,6 +204,7 @@ class WhatsApp extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 1,
           unselectedItemColor: Colors.white,
           selectedItemColor: Colors.lightGreen,
           backgroundColor: Colors.black,
