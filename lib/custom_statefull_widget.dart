@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomStatefulWidget extends StatefulWidget {
-  const CustomStatefulWidget({Key? key}) : super(key: key);
+  const CustomStatefulWidget({super.key});
 
   @override
   _CustomStatefulWidgetState createState() => _CustomStatefulWidgetState();

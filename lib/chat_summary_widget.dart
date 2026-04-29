@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 
 class ChatSummaryWidget extends StatelessWidget {
   const ChatSummaryWidget(
-      {super.key, required this.name, required this.lastMessage});
+      {super.key,
+      required this.name,
+      required this.lastMessage,
+      required this.imagePath,
+      required this.time,
+      required this.mssgCount});
   final String name;
+  final String imagePath;
+  final String time;
   final String lastMessage;
+  final int mssgCount;
 
   @override
   Widget build(BuildContext context) {
@@ -68,21 +76,36 @@ class ChatSummaryWidget extends StatelessWidget {
               ],
             ),
             const Spacer(),
-            const Column(
+             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "12:30",
+                  time,
                   style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
                 SizedBox(
                   height: 8,
                 ),
-                Icon(
-                  Icons.check,
-                  color: Colors.white,
-                  size: 16,
-                ),
+                 Row(
+                children: [
+                  CircleAvatar(
+                    radius: 8,
+                    backgroundColor: Colors.green,
+                    child: Text(
+                      "$mssgCount",
+                      style: const TextStyle(fontSize: 10),
+                    ),
+                  ),
+                   SizedBox(
+                    width: 5,
+                  ),
+                   Icon(
+                    Icons.check,
+                    size: 18,
+                    color: Color.fromARGB(147, 255, 255, 255),
+                  ),
+                ],
+              )
               ],
             ),
           ],
