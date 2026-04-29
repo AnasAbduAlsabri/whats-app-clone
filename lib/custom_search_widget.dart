@@ -3,13 +3,8 @@ import 'package:flutter/material.dart';
 class CustomSearchWidget extends StatefulWidget {
   const CustomSearchWidget({super.key});
 
-<<<<<<< Updated upstream
   @override 
-  State<StatefulWidget> createState() => _SearchState();
-=======
-  @override
-  State<CustomSearchWidget> createState() => _CustomSearchWidgetState();
->>>>>>> Stashed changes
+  State<StatefulWidget> createState() => _CustomSearchWidgetState();
 }
 
 class _CustomSearchWidgetState extends State<CustomSearchWidget> {
